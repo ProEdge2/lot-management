@@ -1,5 +1,5 @@
-import db from "./db.js";
-import mongoose from "mongoose";
+const db = require("../database.js");
+const mongoose = require("mongoose");
 
 // Use the `db` connection object for database operations
 // Example: Define a Mongoose schema and model
@@ -16,8 +16,9 @@ const newUser = new User({
   email: "john@example.com",
 });
 
-export default class reportDAO {
+class reportDAO {
   static async addUser() {
+    console.log(newUser.name);
     newUser
       .save()
       .then((result) => {
@@ -28,3 +29,4 @@ export default class reportDAO {
       });
   }
 }
+module.exports = reportDAO;
